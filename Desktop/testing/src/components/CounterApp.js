@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { uid } from 'react-uid';
 
 const CounterApp = ({ value = 0 }) => {
@@ -27,6 +27,11 @@ const handleAdd = () => {
     })
   }
 
+useEffect(() => {
+  console.log('useEffect');
+}
+, [counter.counter]);
+
   const handleReset = () => {
     setCounter((prevState) => {
       return {
@@ -40,7 +45,8 @@ const handleAdd = () => {
   return (
     <>
       <div>CounterApp</div>
-      <div>{counter.counter}</div>
+      {/* <div>{counter.counter}</div> */}
+      { counter?.id && <p>{ counter?.counter }</p> }
       <button onClick={ handleAdd }>+</button>
       <button onClick={ handleSubstract }>-</button>
       <button onClick={ handleReset }>reset</button>
