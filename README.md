@@ -1,1 +1,0 @@
-# bojji_cv
